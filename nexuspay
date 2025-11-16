@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexus Pay - Digital Payments</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header, footer, nav, main, aside, section {
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        /* -- Header -- */
+        header {
+            background-color: #6b9b8a; /* Sage blue */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        header .header-right {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        header input[type="search"] {
+            padding: 0.4rem 0.8rem;
+            border: none;
+            border-radius: 4px;
+        }
+        header button {
+            background: white;
+            color: #6b9b8a;
+            padding: 0.4rem 0.8rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* -- Navigation bar -- */
+        nav {
+            background-color: #ffffff;
+            margin-top: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        nav li {
+            padding: 0.5rem 0;
+        }
+        nav li:hover {
+            border-bottom: 2px solid #6b9b8a;
+        }
+
+        .hero {
+            background: url('https://via.placeholder.com/1200x400') center / cover no-repeat;
+            height: 400px;
+            margin: 1rem 0;
+            border-radius: 8px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+        }
+        .hero button {
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            background: #9fbfb3;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .categories .category-card {
+            background: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .categories .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .content-wrapper {
+            display: flex;
+            gap: 2rem;
+        }
+        aside {
+            flex: 1;
+            max-width: 250px;
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        main {
+            flex: 3;
+        }
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card img {
+            width: 100%;
+            object-fit: cover;
+            height: 180px;
+        }
+        .product-card .info {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-card .info h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .product-card .info .price {
+            color: #6b9b8a;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+        .product-card button {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background: #6b9b8a;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .newsletter {
+            background: #9fbfb3;
+            margin: 2rem 0;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .newsletter input[type="email"] {
+            padding: 0.6rem 1rem;
+            width: 300px;
+            max-width: 90%;
+            border: none;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+        .newsletter button {
+            padding: 0.6rem 1rem;
+            background: #6b9b8a;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #333;
+            color: #ddd;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        footer .footer-section {
+            flex: 1;
+            padding: 1rem;
+            min-width: 200px;
+        }
+        footer a {
+            color: #ddd;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Nexus Pay</div>
+        <div class="header-right">
+            <input type="search" placeholder="Search payments, transfers…" />
+            <button>Send Money</button>
+            <button>Wallet (0)</button>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Pay Bills</a></li>
+            <li><a href="#">Send Money</a></li>
+            <li><a href="#">Mobile Recharge</a></li>
+            <li><a href="#">Travel</a></li>
+            <li><a href="#">Invest</a></li>
+            <li><a href="#">Insurance</a></li>
+            <li><!-- human error --></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <div>
+            <h2>Fast, Secure Digital Payments</h2>
+            <button>Get Started Now</button>
+        </div>
+    </div>
+
+    <section class="categories">
+        <div class="category-card">Pay Bills</div>
+        <div class="category-card">Mobile Recharge</div>
+        <div class="category-card">Send Money</div>
+        <div class="category-card">Travel Bookings</div>
+        <div class="category-card">Investments</div>
+        <div class="category-card">Insurance</div>
+    </section>
+
+    <div class="content-wrapper">
+        <aside>
+            <h3>Quick Filters</h3>
+            <p><input type="checkbox" id="filter1" /> <label for="filter1">Recent</label></p>
+            <p><input type="checkbox" id="filter2" /> <label for="filter2">Favorites</label></p>
+            <p><input type="checkbox" id="filter3" /> <label for="filter3">High Value</label></p>
+            <p><input type="checkbox" id="filter4" /> <label for="filter4">Cashback</label></p>
+            <p><!-- typo here --></p>
+        </aside>
+
+        <main>
+            <section class="product-list">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/220x180" alt="Service Image" />
+                    <div class="info">
+                        <h4>Instant Money Transfer</h4>
+                        <div class="price">0% Fee</div>
+                        <button>Use Now</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/220x180" alt="Service Image" />
+                    <div class="info">
+                        <h4>Bill Payments</h4>
+                        <div class="price">Get Cashback</div>
+                        <button>Pay Bills</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/220x180" alt="Service Image" />
+                    <div class="info">
+                        <h4>Mobile Recharge</h4>
+                        <div class="price">Instant Activation</div>
+                        <button>Recharge</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <section class="newsletter">
+        <h3>Join Nexus Pay Today</h3>
+        <p>Get exclusive cashback offers & seamless payments</p>
+        <input type="email" placeholder="Your email address" />
+        <button>Sign Up</button>
+    </section>
+
+    <footer>
+        <div class="footer-section">
+            <h4>About Nexus Pay</h4>
+            <p>Fast, secure, and convenient digital payment solutions for everyone.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Support</h4>
+            <p><a href="#">Help Center</a></p>
+            <p><a href="#">Transaction Policies</a></p>
+            <p><a href="#">Refund Policy</a></p>
+        </div>
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <p><a href="#">Twitter</a> | <a href="#">Instagram</a> | <a href="#">LinkedIn</a></p>
+        </div>
+        <div class="footer-section">
+            <h4>Legal</h4>
+            <p><a href="#">Privacy Policy</a></p>
+            <p><a href="#">Terms & Conditions</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
