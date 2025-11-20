@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Pay - Send Money</title>
+    <style>
+        :root {
+            --nexus-primary: #1d4ed8;
+            --nexus-secondary: #3b82f6;
+            --nexus-accent: #10b981;
+            --text-dark: #1f2937;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        a { 
+            text-decoration: none; 
+            color: inherit; 
+        }
+        header {
+            background-color: var(--nexus-primary);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: bold; 
+        }
+        nav {
+            background-color: white;
+            padding: 0.5rem 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        nav li a { 
+            padding: 0.5rem 1rem; 
+            display: block; 
+            font-weight: 600; 
+        }
+        nav li a.active {
+            color: var(--nexus-primary);
+            border-bottom: 3px solid var(--nexus-primary);
+        }
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 0 0 1rem 0;
+        }
+        .send-form-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .send-form-card h2 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+        .form-group { 
+            margin-bottom: 1.5rem; 
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #555;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        .form-group input[type="number"] {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--nexus-primary);
+            padding-left: 30px;
+        }
+        .amount-container { 
+            position: relative; 
+        }
+        .amount-container::before {
+            content: '₹';
+            position: absolute;
+            left: 10px;
+            top: 12px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #666;
+        }
+        .submit-button {
+            background-color: var(--nexus-accent);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+        }
+        .submit-button:hover { 
+            background-color: #0c8a66; 
+        }
+        .option-tabs {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f0f0f0;
+            padding: 5px;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .tab-btn {
+            flex: 1;
+            background: none;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .tab-btn.active {
+            background-color: white;
+            color: var(--nexus-primary);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .payment-section {
+            display: none;
+        }
+        .payment-section.active-section {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Nexus Pay</div>
+        <div><span style="font-size: 1.2rem;">👤🔔</span></div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="wallet.html">Wallet</a></li>
+            <li><a href="send_money.html" class="active">Send Money</a></li>
+            <li><a href="#">Offers</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="send-form-card">
+            <h2>Send Money</h2>
+            
+            <div class="option-tabs">
+                <button class="tab-btn active">Mobile No.</button>
+                <button class="tab-btn">UPI ID</button>
+                <button class="tab-btn">Bank A/C</button>
+            </div>
+
+            <form action="#" method="POST">
+                
+                <div id="mobile" class="payment-section active-section">
+                    <div class="form-group">
+                        <label for="mobileInput">Recipient Mobile Number</label>
+                        <input type="tel" id="mobileInput" name="mobile" placeholder="Enter 10-digit number" pattern="[0-9]{10}">
+                    </div>
+                </div>
+
+                <div id="upi" class="payment-section">
+                    <div class="form-group">
+                        <label for="upiInput">Recipient UPI ID</label>
+                        <input type="text" id="upiInput" name="upi" placeholder="e.g. name@bankname">
+                    </div>
+                </div>
+
+                <div id="bank" class="payment-section">
+                    <div class="form-group">
+                        <label for="acInput">Account Number</label>
+                        <input type="text" id="acInput" name="account_no" placeholder="Enter Account Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="ifscInput">IFSC Code</label>
+                        <input type="text" id="ifscInput" name="ifsc" placeholder="e.g. SBIN0001234" style="text-transform: uppercase;">
+                    </div>
+                    <div class="form-group">
+                        <label for="holderInput">Account Holder Name</label>
+                        <input type="text" id="holderInput" name="holder_name" placeholder="Enter Name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Amount to Send</label>
+                    <div class="amount-container">
+                        <input type="number" id="amount" name="amount" placeholder="0" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    Proceed to Pay
+                </button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
