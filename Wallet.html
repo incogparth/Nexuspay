@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Pay - Wallet</title>
+    <style>
+        :root {
+            --nexus-primary: #1d4ed8;
+            --nexus-secondary: #3b82f6;
+            --nexus-accent: #10b981;
+            --text-dark: #1f2937;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        header {
+            background-color: var(--nexus-primary);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        nav {
+            background-color: white;
+            padding: 0.5rem 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        nav li a {
+            padding: 0.5rem 1rem;
+            display: block;
+            font-weight: 600;
+        }
+        nav li a.active, nav li a:hover {
+            color: var(--nexus-primary);
+            border-bottom: 3px solid var(--nexus-primary);
+        }
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+        .wallet-section {
+            background-image: linear-gradient(135deg, var(--nexus-primary), var(--nexus-secondary));
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .wallet-section h2 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.5rem;
+        }
+        .wallet-section p {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+        .wallet-actions a {
+            background-color: var(--nexus-accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 0 0.5rem;
+            display: inline-block;
+            transition: background-color 0.2s;
+        }
+        .wallet-actions a:hover {
+            background-color: #0c8a66;
+        }
+        .history-section {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .history-section h2 {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        .transaction-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .transaction-item:last-child {
+            border-bottom: none;
+        }
+        .detail h3 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .detail p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .amount {
+            font-weight: bold;
+        }
+        .credit {
+            color: var(--nexus-accent);
+        }
+        .debit {
+            color: #ef4444;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Nexus Pay</div>
+        <div>
+            <span style="font-size: 1.2rem;">👤🔔</span>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="wallet.html" class="active">Wallet</a></li>
+            <li><a href="send_money.html">Send Money</a></li>
+            <li><a href="#">Offers</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <section class="wallet-section">
+            <h2>Your Nexus Wallet Balance</h2>
+            <p>₹ 50,000.50</p>
+            <div class="wallet-actions">
+                <a href="#">Add Money</a>
+                <a href="#">Withdraw</a>
+            </div>
+        </section>
+
+        <section class="history-section">
+            <h2>Transaction History</h2>
+            <ul class="transaction-list">
+                <li class="transaction-item">
+                    <div class="detail">
+                        <h3>Salary Deposit</h3>
+                        <p>Nov 15, 2025</p>
+                    </div>
+                    <div class="amount credit">+ ₹ 35,000.00</div>
+                </li>
+                <li class="transaction-item">
+                    <div class="detail">
+                        <h3>Mobile Recharge</h3>
+                        <p>Nov 16, 2025</p>
+                    </div>
+                    <div class="amount debit">- ₹ 299.00</div>
+                </li>
+                <li class="transaction-item">
+                    <div class="detail">
+                        <h3>Netflix Subscription</h3>
+                        <p>Nov 18, 2025</p>
+                    </div>
+                    <div class="amount debit">- ₹ 799.00</div>
+                </li>
+                <li class="transaction-item">
+                    <div class="detail">
+                        <h3>UPI Received (Jane D.)</h3>
+                        <p>Nov 19, 2025</p>
+                    </div>
+                    <div class="amount credit">+ ₹ 250.00</div>
+                </li>
+            </ul>
+        </section>
+
+    </div>
+
+</body>
+</html>
