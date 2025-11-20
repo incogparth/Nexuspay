@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Pay - Home</title>
+    <style>
+        :root {
+            --nexus-primary: #1d4ed8;
+            --nexus-secondary: #3b82f6;
+            --nexus-accent: #10b981;
+            --text-dark: #1f2937;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        header {
+            background-color: var(--nexus-primary);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        nav {
+            background-color: white;
+            padding: 0.5rem 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        nav li a {
+            padding: 0.5rem 1rem;
+            display: block;
+            font-weight: 600;
+        }
+        nav li a.active, nav li a:hover {
+            color: var(--nexus-primary);
+            border-bottom: 3px solid var(--nexus-primary);
+        }
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+        .balance-card {
+            background-color: var(--nexus-secondary);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .balance-card h2 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.2rem;
+        }
+        .balance-card p {
+            font-size: 2.2rem;
+            font-weight: bold;
+        }
+        .action-grid, .utility-grid {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .action-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .action-item {
+            background-color: white;
+            padding: 1.5rem 1rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+            border: 1px solid #ddd;
+        }
+        .action-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .action-item h3 {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+        .utility-section {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .utility-section h2 {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        .utility-grid {
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+        }
+        .utility-item p {
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+        .icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--nexus-secondary);
+            border-radius: 50%;
+            margin-bottom: 5px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Nexus Pay</div>
+        <div>
+            <span style="font-size: 1.2rem;">👤🔔</span>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="home.html" class="active">Home</a></li>
+            <li><a href="wallet.html">Wallet</a></li>
+            <li><a href="send_money.html">Send Money</a></li>
+            <li><a href="#">Offers</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <div class="balance-card">
+            <h2>Current Balance</h2>
+            <p>₹ 50,000.50</p>
+            <a href="wallet.html" style="color: #eee; font-size: 0.9rem; text-decoration: underline;">View Details</a>
+        </div>
+
+        <section class="action-grid">
+            <a href="#" class="action-item">
+                <h3 style="color: var(--nexus-accent);">SCAN & PAY</h3>
+            </a>
+            <a href="send_money.html" class="action-item">
+                <h3>To Mobile No.</h3>
+            </a>
+            <a href="send_money.html" class="action-item">
+                <h3>To Bank/UPI</h3>
+            </a>
+            <a href="wallet.html" class="action-item">
+                <h3>Check Balance</h3>
+            </a>
+        </section>
+
+        <section class="utility-section">
+            <h2>Recharge & Bill Payments</h2>
+            <div class="utility-grid">
+                <a href="#" class="utility-item">
+                    <div class="icon"></div>
+                    <p>Mobile Recharge</p>
+                </a>
+                <a href="#" class="utility-item">
+                    <div class="icon"></div>
+                    <p>Electricity</p>
+                </a>
+                <a href="#" class="utility-item">
+                    <div class="icon"></div>
+                    <p>DTH</p>
+                </a>
+                <a href="#" class="utility-item">
+                    <div class="icon"></div>
+                    <p>Gas Bill</p>
+                </a>
+                <a href="#" class="utility-item">
+                    <div class="icon"></div>
+                    <p>Credit Card</p>
+                </a>
+                <a href="#" class="utility-item">
+                    <div class="icon"></div>
+                    <p>Insurance</p>
+                </a>
+                <a href="#" class="utility-item">
+                    <div class="icon"></div>
+                    <p>Fastag</p>
+                </a>
+                <a href="#" class="utility-item">
+                    <div class="icon"></div>
+                    <p>Travel Booking</p>
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
